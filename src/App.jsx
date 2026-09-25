@@ -110,6 +110,7 @@ import StudentForm from "./components/studentform";
 import Login from "./components/login";
 import Register from "./components/register";
 const API_URL=import.meta.env.VITE_API_URL;
+console.log("API URL:", API_URL);
 function App(){
   const [students,setStudents]=useState([])
   const [name,setName]=useState("");
@@ -197,6 +198,7 @@ function App(){
     })
   };
     const deleteStudent=(name)=>{
+      const token=localStorage.getItem("token");
       fetch(`${API_URL}/student/${name}`,{
         method:"DELETE",
         headers:{
@@ -230,6 +232,7 @@ function App(){
         setError("age must be greater than zero");
         return;
       }
+      const token=localStorage.getItem("token");
     fetch(`${API_URL}/student/${editingStudent.name}`,{
         method:"PUT",
         headers:{
@@ -296,7 +299,7 @@ function App(){
    })
   }
   const handleRegister=(name,email,password)=>{
-     fetch(`${API_URL}http://localhost:3000/register`,{
+     fetch(`${API_URL}/register`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
