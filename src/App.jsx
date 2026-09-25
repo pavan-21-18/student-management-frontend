@@ -110,7 +110,6 @@ import StudentForm from "./components/studentform";
 import Login from "./components/login";
 import Register from "./components/register";
 const API_URL=import.meta.env.VITE_API_URL;
-console.log("API URL:", API_URL);
 function App(){
   const [students,setStudents]=useState([])
   const [name,setName]=useState("");
